@@ -131,7 +131,7 @@ namespace Snapmaw {
         key.SetValue("", "Copy share link");
         key.SetValue("Icon", appPath);
         using (var commandKey = key.CreateSubKey("command")) {
-          commandKey.SetValue("", $"\"{appPath}\" %1");
+          commandKey.SetValue("", $"\"{appPath}\" \"%1\"");
         }
       }
 
@@ -140,7 +140,7 @@ namespace Snapmaw {
         key.SetValue("", "Copy share link");
         key.SetValue("Icon", appPath);
         using var commandKey = key.CreateSubKey("command");
-        commandKey.SetValue("", $"\"{appPath}\" %1");
+        commandKey.SetValue("", $"\"{appPath}\" \"%1\"");
       }
 
       // Register URL scheme
