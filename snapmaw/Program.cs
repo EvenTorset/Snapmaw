@@ -174,7 +174,7 @@ namespace Snapmaw {
         var process = new Process {
           StartInfo = new ProcessStartInfo {
             FileName = "croc",
-            Arguments = $"send --code \"https://snapmaw.pages.dev/{GenerateCode()}\" {string.Join(" ", args.Select(arg => $"\"{arg}\""))}",
+            Arguments = $"send --hash imohash --code \"https://snapmaw.pages.dev/{GenerateCode()}\" {string.Join(" ", args.Select(arg => $"\"{arg}\""))}",
             RedirectStandardError = true,
             UseShellExecute = false,
             CreateNoWindow = true
