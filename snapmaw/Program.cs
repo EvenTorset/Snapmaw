@@ -1,7 +1,5 @@
 ﻿using Microsoft.Win32;
 using System.Diagnostics;
-using System.Windows.Forms;
-using System.Threading;
 
 namespace Snapmaw {
   class Program {
@@ -130,9 +128,8 @@ namespace Snapmaw {
       using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\CopyShareLinkSnapmaw")) {
         key.SetValue("", "Copy share link");
         key.SetValue("Icon", appPath);
-        using (var commandKey = key.CreateSubKey("command")) {
-          commandKey.SetValue("", $"\"{appPath}\" \"%1\"");
-        }
+        using var commandKey = key.CreateSubKey("command");
+        commandKey.SetValue("", $"\"{appPath}\" \"%1\"");
       }
 
       // Register context menu for folders
